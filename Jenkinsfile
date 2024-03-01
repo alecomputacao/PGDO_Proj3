@@ -50,7 +50,9 @@ node {
 	
     stage('Deploy Docker Image with new changes'){
 	        
-    echo "Iniciando container"      
+    echo "Iniciando container"     
+    sh "docker ps -a"
+    sleep(5)  
 	    //start container with the remote image
 	  sh "docker run --name devopsexample -d -p 2222:2222 ${dockerhubaccountid}/${application}:${env.BUILD_NUMBER}"  
 	  
